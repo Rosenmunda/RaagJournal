@@ -1,0 +1,226 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+
+  --color-electric-blue: #00F0FF;
+  --color-acid-green: #BAFF29;
+  --color-hot-pink: #FF0055;
+
+  --font-serif-header: var(--font-news-cycle), sans-serif;
+  --font-news-cycle: var(--font-news-cycle), sans-serif;
+  --font-serif-body: var(--font-sillage), serif;
+  --font-sillage: var(--font-sillage), serif;
+  --font-mono-tag: var(--font-space-mono), monospace;
+  --font-chomsky: var(--font-chomsky), serif;
+
+  --shadow-neobrutal: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-neobrutal-sm: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+
+  /* Override OKLCH grays with safe HEX for html2canvas (PDF generation) */
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+}
+
+:root {
+  --paper: #fff9e9;
+  --ink: #111111;
+  --surface: #f0ebe0;
+  --surface-muted: #e8e2d4;
+  --border-muted: rgba(17, 17, 17, 0.15);
+  --background: var(--paper);
+  --foreground: var(--ink);
+}
+
+.dark {
+  --paper: #1a1a1a;
+  --ink: #F0EDE6;
+  --surface: #242424;
+  --surface-muted: #2e2e2e;
+  --border-muted: rgba(240, 237, 230, 0.12);
+  --background: var(--paper);
+  --foreground: var(--ink);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-serif-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Ensure all text uses ink by default */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+div {
+  border-color: var(--ink);
+}
+
+/* Dark mode: soften all borders that use ink to avoid harsh white lines */
+.dark * {
+  border-color: rgba(240, 237, 230, 0.18);
+}
+
+/* But keep explicit dark-ring and focused borders crisp */
+.dark .border-ink {
+  border-color: rgba(240, 237, 230, 0.35) !important;
+}
+
+.dark .border-hot-pink {
+  border-color: #ff2264 !important;
+}
+
+.dark .border-acid-green {
+  border-color: #BAFF29 !important;
+}
+
+.dark .border-electric-blue {
+  border-color: #00F0FF !important;
+}
+
+/* Dark mode card / surface overrides */
+.dark .bg-paper {
+  background-color: var(--surface);
+}
+
+.dark .bg-gray-50,
+.dark .bg-gray-100 {
+  background-color: var(--surface-muted);
+}
+
+/* Dark mode hover states — acid green hover becomes muted in dark */
+.dark .hover\:bg-acid-green:hover,
+.dark .hover\:bg-acid-green\/50:hover,
+.dark .hover\:bg-acid-green\/30:hover {
+  background-color: rgba(186, 255, 41, 0.15) !important;
+}
+
+/* Dark mode shadow softening */
+.dark .shadow-\[4px_4px_0px_0px_rgba\(0\,0\,0\,0\.15\)\] {
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.5);
+}
+
+.dark .shadow-\[8px_8px_0px_0px_rgba\(0\,0\,0\,0\.2\)\] {
+  box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 0.6);
+}
+
+.dark .shadow-\[2px_2px_0px_0px_rgba\(0\,0\,0\,0\.15\)\] {
+  box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.5);
+}
+
+.dark .shadow-\[3px_3px_0px_0px_rgba\(0\,0\,0\,0\.15\)\] {
+  box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* Custom Utilities for broadsheet layout */
+.broadsheet-cols {
+  column-count: 2;
+  column-gap: 2rem;
+  column-rule: 2px solid var(--ink);
+}
+
+@media (max-width: 768px) {
+  .broadsheet-cols {
+    column-count: 1;
+    column-rule: none;
+  }
+}
+
+::selection {
+  background-color: var(--color-hot-pink);
+  color: var(--paper);
+}
+
+/* Custom Aesthetic Divider for Tiptap & Read Mode */
+.prose hr {
+  border: none;
+  height: 2px;
+  background-color: var(--ink);
+  opacity: 1;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* ─── Ultra-Vintage Broadsheet Border ────────────────────────────────────────
+   An authentic 19th-century 'Ox-Head' rule style.
+   Thick outer frame (12px) → Deep Paper Gap → Double Thin Rules → Corner Flourishes
+   ──────────────────────────────────────────────────────────────────────────── */
+.newspaper-page-border {
+  margin: 16px 20px 40px;
+  padding: 0 0 32px;
+  flex: 1;
+  position: relative;
+  background-color: var(--paper);
+
+  /* The primary thick frame */
+  border: 5px solid #111111;
+
+  /* Double rule shadow effect: Gap → Thin Outer Rule → Outer Margin Glow */
+  box-shadow:
+    inset 0 0 0 3px #111111,
+    /* Inner thin rule (part of the 8px) */
+    0 0 0 6px #f0ebe0,
+    /* Deep cream gap */
+    0 0 0 8px #111111,
+    /* Outer thin rule */
+    0 0 0 12px rgba(0, 0, 0, 0.2);
+  /* Soft broadsheet shadow */
+}
+
+/* Inner Decorative Rules - Top & Bottom */
+.newspaper-inner-decor {
+  position: absolute;
+  top: 12px;
+  left: 20px;
+  right: 20px;
+  height: 3px;
+  border-top: 1px solid #111111;
+  border-bottom: 1px solid #111111;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.newspaper-bottom-decor {
+  position: absolute;
+  bottom: 12px;
+  left: 20px;
+  right: 20px;
+  height: 3px;
+  border-top: 1px solid #111111;
+  border-bottom: 1px solid #111111;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* Dark mode version */
+.dark .newspaper-page-border {
+  border: 8px solid rgba(240, 237, 230, 0.5);
+  box-shadow:
+    inset 0 0 0 2px rgba(240, 237, 230, 0.5),
+    0 0 0 6px #1a1a1a,
+    0 0 0 8px rgba(240, 237, 230, 0.5),
+    0 0 0 12px rgba(0, 0, 0, 0.3);
+}
+
+.dark .newspaper-inner-decor,
+.dark .newspaper-bottom-decor {
+  border-color: rgba(240, 237, 230, 0.3);
+}
