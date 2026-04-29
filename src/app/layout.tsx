@@ -40,6 +40,10 @@ import { SplashLoader } from "@/components/SplashLoader";
 export const metadata: Metadata = {
   title: "Daily Journal | Chronicles of the Everyday Mind",
   description: "A neobrutalist personal journaling space",
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({
