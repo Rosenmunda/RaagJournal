@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🗞️ RaagJournal: Chronicles of the Everyday Mind
 
-## Getting Started
+RaagJournal is a premium, open-source personal journaling application designed with a **70% Vintage Newspaper / 30% Modern Pop-Art** aesthetic. It blends the nostalgia of classic broadsheets with high-contrast Neobrutalist design and AI-powered intelligence.
 
-First, run the development server:
+![RaagJournal Hero](public/logo.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ✨ Features
+
+### 🗞️ The Broadsheet Experience
+- **Interactive Masthead**: A classic newspaper header featuring a digital clock that triggers the **Chronos.app** terminal.
+- **Chronos Terminal**: A Mac-inspired window dialog with a functional **Timer**, **Alarm**, and **World Clock** (searchable by city).
+- **Global Broadside**: A real-time AI-generated news feed powered by **Google Gemini**, providing a satirical yet insightful backdrop to your day.
+- **Breaking News Ticker**: A customizable, animated ticker for quick thoughts and current vibes.
+
+### 🖋️ Distraction-Free Journaling
+- **Neobrutalist Editor**: A sleek, Tiptap-powered rich text editor with custom section dividers and print-ready formatting.
+- **Thought of the Day**: Dedicated space for deep reflection, persisted directly to your personal database.
+- **Reading Mode**: Seamlessly switch between editing and a clean, printed-page preview.
+
+### 🌓 Modern Performance
+- **Dark/Light Mode**: Fully responsive theme engine using CSS variables (`bg-paper` and `ink`).
+- **Mac-Style Dialogs**: Premium window controls (Red/Yellow/Green) and glassmorphism effects for secondary tools.
+- **Shiny stickers**: Floating LinkedIn buttons and custom branded assets for a high-end feel.
+
+## 🚀 Tech Stack
+
+- **Framework**: [Next.js 16](https://nextjs.org/) (Turbopack)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Authentication**: [Clerk](https://clerk.com/)
+- **AI Engine**: [Google Gemini Pro](https://ai.google.dev/)
+- **Database**: MongoDB via Mongoose
+- **Icons**: Lucide React
+
+## 🛠️ Setup & Installation
+
+### Prerequisites
+- Node.js 18+
+- A MongoDB instance (Atlas or local)
+- A Clerk Account (for Auth)
+- A Google AI Studio API Key (for Gemini)
+
+### Environment Variables
+Create a `.env.local` file in the root directory and add the following:
+
+```env
+# Clerk Authentication
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_pub_key
+CLERK_SECRET_KEY=your_secret_key
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+
+# Database
+MONGODB_URI=your_mongodb_uri
+
+# AI Features
+GOOGLE_GENERATIVE_AI_API_KEY=your_gemini_key
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Rosenmunda/RaagJournal.git
+   cd RaagJournal
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🤝 Contributing
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-## Learn More
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-To learn more about Next.js, take a look at the following resources:
+## 📄 License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Distributed under the MIT License. See `LICENSE` for more information.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 💖 Credits
 
-## Deploy on Vercel
+Created with ❤️ by **[Anurag Sen](https://github.com/Rosenmunda)**.
+Special thanks to the open-source community and the creators of the Neobrutalist movement.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+*"Yesterday is but today's memory, and tomorrow is today's dream."*
