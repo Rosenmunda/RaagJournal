@@ -3,6 +3,7 @@ import React from "react";
 import { ThemeToggle } from "./ThemeToggle";
 import { UserButton, useUser } from "@clerk/nextjs";
 import { motion, AnimatePresence } from "framer-motion";
+import { ClockTools } from "./ClockTools";
 
 const RollingDigit = ({ value }: { value: string }) => (
   <div className="relative h-4 overflow-hidden w-[1ch] inline-block align-middle">
@@ -58,6 +59,8 @@ export function Masthead() {
     day: "numeric",
   });
 
+  const [isClockOpen, setIsClockOpen] = React.useState(false);
+
   return (
     <header className="border-b-[1.5px] border-ink pb-4 mb-4 mt-8 flex flex-col items-center relative">
       <div className="absolute right-0 top-0 flex items-center gap-3">
@@ -82,13 +85,16 @@ export function Masthead() {
             <div className="flex items-center gap-1">
               <span>Editor & Creator: <span className="font-extrabold text-lg font-sillage text-ink">{editorName}</span></span>
               <span className="mx-2 opacity-30">|</span>
-              <span className="bg-ink text-paper px-2 py-0.5 rounded-sm flex items-center gap-[1px] font-bold tabular-nums">
+              <button
+                onClick={() => setIsClockOpen(true)}
+                className="bg-ink text-paper px-2 py-0.5 rounded-sm flex items-center gap-[1px] font-bold tabular-nums hover:bg-hot-pink hover:scale-105 active:scale-95 transition-all shadow-[2px_2px_0px_rgba(0,0,0,0.3)] active:shadow-none"
+              >
                 {[...hh].map((d, i) => <RollingDigit key={`h-${i}-${d}`} value={d} />)}
                 <span className="animate-pulse">:</span>
                 {[...mm].map((d, i) => <RollingDigit key={`m-${i}-${d}`} value={d} />)}
                 <span className="animate-pulse">:</span>
                 {[...ss].map((d, i) => <RollingDigit key={`s-${i}-${d}`} value={d} />)}
-              </span>
+              </button>
             </div>
           </div>
           <span className="font-mono-tag text-xs uppercase italic mx-4 line-clamp-1 flex-1 text-center font-bold hidden sm:block">
@@ -97,6 +103,8 @@ export function Masthead() {
           <span className="font-mono-tag text-xs uppercase">Est. 2026</span>
         </div>
       </div>
+
+      <ClockTools isOpen={isClockOpen} onClose={() => setIsClockOpen(false)} />
     </header>
   );
 }

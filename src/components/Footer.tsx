@@ -29,9 +29,54 @@ export const Footer = () => {
           ))}
         </div>
 
+        {/* Shiny Image Button Above Credits */}
+        <div className="flex flex-col items-center gap-4 -mb-4">
+          <style dangerouslySetInnerHTML={{
+            __html: `
+            @keyframes shine {
+              0% { left: -100%; }
+              20% { left: 100%; }
+              100% { left: 100%; }
+            }
+            @keyframes float {
+              0%, 100% { transform: translateY(0px); }
+              50% { transform: translateY(-5px); }
+            }
+            .shiny-button::after {
+              content: "";
+              position: absolute;
+              top: 0;
+              left: -100%;
+              width: 50%;
+              height: 100%;
+              background: linear-gradient(
+                to right,
+                transparent,
+                rgba(255, 255, 255, 0.6),
+                transparent
+              );
+              transform: skewX(-25deg);
+              animation: shine 4s infinite;
+            }
+          ` }} />
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-16 h-16 rounded-full border-2 border-ink bg-white dark:bg-zinc-800 shadow-[4px_4px_0px_rgba(0,0,0,0.4)] hover:brightness-95 hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all overflow-hidden flex items-center justify-center relative shiny-button"
+            style={{ animation: 'float 3s ease-in-out infinite' }}
+          >
+            <img
+              src="/image2.png"
+              alt="LinkedIn"
+              className="w-full h-full object-cover"
+            />
+          </a>
+        </div>
+
         {/* Credit Text */}
         <p className="text-sm text-ink dark:text-zinc-400 font-bold flex items-center justify-center gap-1.5 font-mono-tag uppercase">
-          Made with <Heart className="w-4 h-4 text-hot-pink fill-hot-pink" /> by Rosenmunda
+          Made with <Heart className="w-4 h-4 text-hot-pink fill-hot-pink" /> by Anurag Sen
         </p>
 
       </div>
