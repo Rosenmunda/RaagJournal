@@ -10,10 +10,10 @@ export default function SignInPage() {
 
   return (
     // Outer wrapper uses transparent so it blends with your global background
-    <div className="min-h-screen bg-transparent flex flex-col items-center justify-center p-4 sm:p-8 transition-colors duration-300">
+    <div className="bg-transparent flex flex-col items-center justify-center p-2 sm:p-8 transition-colors duration-300 w-full overflow-hidden">
 
       {/* Newspaper Wrapper (Matches WorldNews layout) */}
-      <article className="w-full max-w-4xl bg-paper shadow-md border-x-[1px] border-y-[4px] border-ink transition-colors duration-300">
+      <article className="w-full max-w-4xl bg-paper shadow-md border-x-[1px] border-y-[4px] border-ink transition-colors duration-300 overflow-hidden">
 
         {/* Top Dateline Bar */}
         <header className="py-2 px-6 uppercase tracking-wider text-[10px] sm:text-xs font-sans font-bold border-b-4 border-double border-ink flex justify-between items-center transition-colors duration-300 text-ink">
@@ -26,7 +26,7 @@ export default function SignInPage() {
 
           {/* Masthead */}
           <div className="mb-12 text-center w-full border-b-[2px] border-ink pb-10 transition-colors duration-300">
-            <h1 className="font-chomsky text-5xl sm:text-7xl md:text-[5.5rem] font-extralight tracking-tighter text-ink leading-[0.9] mb-4">
+            <h1 className="font-chomsky text-4xl sm:text-7xl md:text-[5.5rem] font-extralight tracking-tighter text-ink leading-[0.9] mb-4 break-words">
               The Raag&apos;s Daily Journal
             </h1>
             <p className="font-serif italic text-sm sm:text-base text-ink/80 mt-4">
@@ -35,7 +35,7 @@ export default function SignInPage() {
           </div>
 
           {/* Authentication Section */}
-          <div className="w-full max-w-md flex flex-col items-center">
+          <div className="w-full max-w-md px-2 flex flex-col items-center">
 
             {/* Vintage Section Header */}
             <div className="flex items-center gap-4 mb-8 w-full justify-center">
@@ -50,11 +50,12 @@ export default function SignInPage() {
             <SignIn
               appearance={{
                 elements: {
-                  rootBox: "mx-auto w-full",
-                  card: "bg-surface border-[2px] border-ink shadow-[4px_4px_0px_0px_var(--ink)] rounded-none p-6 sm:p-8",
+                  rootBox: "mx-auto w-full max-w-full",
+                  card: "bg-surface border-[2px] border-ink shadow-[4px_4px_0px_0px_var(--ink)] rounded-none p-4 sm:p-8 w-full max-w-full overflow-hidden",
                   headerTitle: "font-serif text-2xl font-black text-ink",
                   headerSubtitle: "font-sans text-xs uppercase tracking-widest text-ink/70 mt-2",
-                  socialButtonsBlockButton: "border-ink border-[1px] hover:bg-ink/5 rounded-none transition-colors",
+                  socialButtonsBlockMain: "flex-wrap justify-center gap-2",
+                  socialButtonsBlockButton: "border-ink border-[1px] hover:bg-ink/5 rounded-none transition-colors max-w-full",
                   socialButtonsBlockButtonText: "font-sans font-bold uppercase text-[10px] tracking-wider text-ink",
                   dividerLine: "bg-ink/20",
                   dividerText: "font-mono text-[10px] uppercase tracking-widest text-ink/50",

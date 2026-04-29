@@ -169,6 +169,7 @@ div {
   flex: 1;
   position: relative;
   background-color: var(--paper);
+  overflow-x: hidden;
 
   /* The primary thick frame */
   border: 5px solid #111111;

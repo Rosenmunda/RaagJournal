@@ -1,12 +1,13 @@
 import { Heart } from "lucide-react";
 
 const socials = [
-  { label: "LinkedIn", href: "https://linkedin.com" },
-  { label: "GitHub", href: "https://github.com" },
-  { label: "Medium", href: "https://medium.com" },
-  { label: "Dribbble", href: "https://dribbble.com" },
-  { label: "Figma", href: "https://figma.com" },
-  { label: "Buy Me a Coffee", href: "https://buymeacoffee.com" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/anurag-sen19/" },
+  { label: "GitHub", href: "https://github.com/Rosenmunda" },
+  { label: "Medium", href: "https://medium.com/@anuragsenhere" },
+  { label: "Dribbble", href: "https://dribbble.com/anuragsen" },
+  { label: "Figma", href: "https://www.figma.com/files/team/1189564879055715250/all-projects?fuid=1189564868298514198" },
+  { label: "Instagram", href: "https://www.instagram.com/anuragsen.19/" },
+  { label: "Buy Me a Coffee", href: "https://buymeacoffee.com/anuragsenh3" },
 ];
 
 export const Footer = () => {
