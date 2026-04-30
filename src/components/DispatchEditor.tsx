@@ -279,9 +279,17 @@ export function DispatchEditor({ headline, content, onChange, onSave }: Dispatch
   return (
     <motion.div
       initial={{ boxShadow: "4px 4px 0px 0px rgba(0, 0, 0, 0.15)" }}
-      className="bg-paper border-[1.5px] rounded-[1.25rem] border-ink p-8 min-h-[600px] flex flex-col col-span-1 md:col-span-3 lg:col-span-2 relative transition-colors"
+      className="bg-paper border-[1.5px] rounded-[1.25rem] border-ink min-h-[600px] flex flex-col col-span-1 md:col-span-3 lg:col-span-2 relative transition-colors overflow-hidden"
     >
-      <div className="flex justify-between items-center mb-6 border-b-[1.5px] border-ink pb-4">
+      {/* Apple UI Window Controls */}
+      <div className="w-full bg-surface/50 border-b-[1.5px] border-ink py-3 px-5 flex items-center gap-2">
+        <div className="w-3.5 h-3.5 rounded-full bg-[#FF5F56] border-[1px] border-black/10 shadow-sm"></div>
+        <div className="w-3.5 h-3.5 rounded-full bg-[#FFBD2E] border-[1px] border-black/10 shadow-sm"></div>
+        <div className="w-3.5 h-3.5 rounded-full bg-[#27C93F] border-[1px] border-black/10 shadow-sm"></div>
+      </div>
+
+      <div className="p-8 flex flex-col flex-1 gap-0">
+        <div className="flex justify-between items-center mb-6 border-b-[1.5px] border-ink pb-4">
         <div className="flex flex-col">
           <h3 className="font-mono-tag uppercase font-bold text-xs text-gray-500">Rich Dispatch Editor</h3>
           <div className="flex gap-2 mt-1">
@@ -331,6 +339,7 @@ export function DispatchEditor({ headline, content, onChange, onSave }: Dispatch
             ))}
           </div>
         </div>
+      </div>
       </div>
     </motion.div>
   );

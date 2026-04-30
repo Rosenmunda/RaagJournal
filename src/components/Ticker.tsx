@@ -98,42 +98,55 @@ export function Ticker() {
               initial={{ opacity: 0, y: 20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 20, scale: 0.95 }}
-              className="bg-paper border-[1.5px] rounded-[1.25rem] p-8 w-full max-w-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] z-10 flex flex-col gap-6"
+              className="bg-paper border-[1.5px] rounded-[1.25rem] w-full max-w-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] z-10 flex flex-col overflow-hidden"
             >
-              <h3 className="font-serif-header text-3xl font-black uppercase text-ink">Breaking News Desk</h3>
-              <p className="font-mono-tag text-xs text-gray-500 uppercase">Transmit 3 lines to the global ticker</p>
-
-              <div className="flex flex-col gap-4">
-                {[0, 1, 2].map((i) => (
-                  <div key={i} className="flex flex-col gap-1">
-                    <label className="font-mono-tag text-[10px] font-bold text-ink uppercase">Line {i + 1}</label>
-                    <input
-                      value={tempItems[i] || ""}
-                      onChange={(e) => {
-                        const newItems = [...tempItems];
-                        newItems[i] = e.target.value;
-                        setTempItems(newItems);
-                      }}
-                      className="w-full p-3 border-[1.5px] rounded-[1.25rem] border-ink bg-transparent text-ink font-serif-body focus:outline-none focus:ring-2 focus:ring-hot-pink transition-all selection:bg-acid-green selection:text-paper"
-                      placeholder="Enter dispatch..."
-                    />
-                  </div>
-                ))}
+              {/* Apple UI Window Controls */}
+              <div className="w-full bg-surface/50 border-b-[1.5px] border-ink py-3 px-5 flex items-center gap-2">
+                <button 
+                  onClick={() => setIsModalOpen(false)}
+                  className="w-3.5 h-3.5 rounded-full bg-[#FF5F56] border-[1px] border-black/10 shadow-sm hover:bg-red-600 transition-colors cursor-pointer"
+                  aria-label="Close"
+                ></button>
+                <div className="w-3.5 h-3.5 rounded-full bg-[#FFBD2E] border-[1px] border-black/10 shadow-sm"></div>
+                <div className="w-3.5 h-3.5 rounded-full bg-[#27C93F] border-[1px] border-black/10 shadow-sm"></div>
               </div>
 
-              <div className="flex justify-end gap-4 mt-2 border-t-[1.5px] border-ink border-dashed pt-6">
-                <button
-                  onClick={() => setIsModalOpen(false)}
-                  className="px-6 py-3 border-[1.5px] rounded-[1.25rem] border-ink bg-transparent text-ink font-mono-tag text-xs uppercase font-bold hover:bg-ink hover:text-paper transition-all"
-                >
-                  Cancel
-                </button>
-                <button
-                  onClick={handleSave}
-                  className="px-6 py-3 border-[1.5px] rounded-[1.25rem] border-ink bg-electric-blue text-black font-mono-tag text-xs uppercase font-bold hover:bg-hot-pink hover:text-paper shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] active:translate-y-1 active:translate-x-1 active:shadow-none transition-all"
-                >
-                  Broadcast
-                </button>
+              <div className="p-8 flex flex-col gap-6">
+                <h3 className="font-serif-header text-3xl font-black uppercase text-ink">Breaking News Desk</h3>
+                <p className="font-mono-tag text-xs text-gray-500 uppercase">Transmit 3 lines to the global ticker</p>
+
+                <div className="flex flex-col gap-4">
+                  {[0, 1, 2].map((i) => (
+                    <div key={i} className="flex flex-col gap-1">
+                      <label className="font-mono-tag text-[10px] font-bold text-ink uppercase">Line {i + 1}</label>
+                      <input
+                        value={tempItems[i] || ""}
+                        onChange={(e) => {
+                          const newItems = [...tempItems];
+                          newItems[i] = e.target.value;
+                          setTempItems(newItems);
+                        }}
+                        className="w-full p-3 border-[1.5px] rounded-[1.25rem] border-ink bg-transparent text-ink font-serif-body focus:outline-none focus:ring-2 focus:ring-hot-pink transition-all selection:bg-acid-green selection:text-paper"
+                        placeholder="Enter dispatch..."
+                      />
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex justify-end gap-4 mt-2 border-t-[1.5px] border-ink border-dashed pt-6">
+                  <button
+                    onClick={() => setIsModalOpen(false)}
+                    className="px-6 py-3 border-[1.5px] rounded-[1.25rem] border-ink bg-transparent text-ink font-mono-tag text-xs uppercase font-bold hover:bg-ink hover:text-paper transition-all"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    onClick={handleSave}
+                    className="px-6 py-3 border-[1.5px] rounded-[1.25rem] border-ink bg-electric-blue text-black font-mono-tag text-xs uppercase font-bold hover:bg-hot-pink hover:text-paper shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] active:translate-y-1 active:translate-x-1 active:shadow-none transition-all"
+                  >
+                    Broadcast
+                  </button>
+                </div>
               </div>
             </motion.div>
           </div>

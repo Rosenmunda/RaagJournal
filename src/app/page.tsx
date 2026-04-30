@@ -13,6 +13,7 @@ import { ImportantDates } from "@/components/ImportantDates";
 import { WorldNews } from "@/components/WorldNews";
 import { SpotifyPlayer } from "@/components/SpotifyPlayer";
 import { DictionarySidebar } from "@/components/DictionarySidebar";
+import { LoadingScreen } from "@/components/LoadingScreen";
 
 interface JournalEntryData {
   _id?: string;
@@ -166,6 +167,7 @@ export default function Home() {
 
   return (
     <>
+      {loading && <LoadingScreen />}
       <Masthead />
 
       {/* Date & Status Bar */}

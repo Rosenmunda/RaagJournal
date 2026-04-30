@@ -87,7 +87,14 @@ export function WorldNews() {
     <div className="w-full bg-transparent p-4 md:p-8 flex justify-center text-ink transition-colors duration-300">
 
       {/* Main Article uses bg-paper and border-ink */}
-      <article className="w-full max-w-6xl bg-paper shadow-md border-x-[1px] border-y-[4px] border-ink transition-colors duration-300">
+      <article className="w-full max-w-6xl bg-paper shadow-md border-x-[1px] border-y-[4px] border-ink transition-colors duration-300 overflow-hidden">
+        
+        {/* Apple UI Window Controls */}
+        <div className="w-full bg-surface/50 border-b-[1px] border-ink py-3 px-5 flex items-center gap-2">
+          <div className="w-3.5 h-3.5 rounded-full bg-[#FF5F56] border-[1px] border-black/10 shadow-sm"></div>
+          <div className="w-3.5 h-3.5 rounded-full bg-[#FFBD2E] border-[1px] border-black/10 shadow-sm"></div>
+          <div className="w-3.5 h-3.5 rounded-full bg-[#27C93F] border-[1px] border-black/10 shadow-sm"></div>
+        </div>
 
         {/* Top Dateline Bar */}
         <header className="py-3 px-6 uppercase tracking-wider text-xs sm:text-sm font-sans font-bold border-b-4 border-double border-ink flex justify-between items-center transition-colors duration-300">
