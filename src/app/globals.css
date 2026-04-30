@@ -16,8 +16,8 @@
   --font-mono-tag: var(--font-space-mono), monospace;
   --font-chomsky: var(--font-chomsky), serif;
 
-  --shadow-neobrutal: 8px 8px 0px 0px rgba(0, 0, 0, 1);
-  --shadow-neobrutal-sm: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-neobrutal: 3px 3px 0px 0px rgba(0, 0, 0, 0.3);
+  --shadow-neobrutal-sm: 2px 2px 0px 0px rgba(0, 0, 0, 0.3);
 
   /* Override OKLCH grays with safe HEX for html2canvas (PDF generation) */
   --color-gray-50: #f9fafb;

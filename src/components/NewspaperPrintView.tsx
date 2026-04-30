@@ -18,7 +18,7 @@ export function NewspaperPrintView({ date, headline, content }: NewspaperPrintVi
 
   const handlePrint = () => {
     // Generate PDF targeting the newspaper view
-    generatePDF(() => targetRef.current, {
+    generatePDF(targetRef, {
       filename: `Dispatch-${date}.pdf`,
       page: {
         margin: 20,
@@ -49,8 +49,8 @@ export function NewspaperPrintView({ date, headline, content }: NewspaperPrintVi
         </button>
       </div>
 
-      <div 
-        ref={targetRef} 
+      <div
+        ref={targetRef}
         className="bg-paper border-[1.5px] rounded-[1.25rem] border-ink p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] min-h-[600px] w-full max-w-[816px] mx-auto text-ink"
       >
         <div className="border-b-[1.5px] border-ink pb-6 mb-8 text-center">
@@ -63,7 +63,7 @@ export function NewspaperPrintView({ date, headline, content }: NewspaperPrintVi
         </div>
 
         {/* Newspaper Columns Output */}
-        <div 
+        <div
           className={`${isMultiColumn ? 'columns-1 md:columns-2 lg:columns-3' : 'columns-1'} gap-8 prose dark:prose-invert prose-p:font-serif-body prose-headings:font-serif-header prose-headings:uppercase prose-headings:break-after-avoid w-full max-w-none prose-p:text-ink prose-headings:text-ink
           first-letter:text-6xl first-letter:font-black first-letter:float-left first-letter:mr-2 first-letter:leading-none first-letter:text-hot-pink`}
           dangerouslySetInnerHTML={{ __html: content }}
