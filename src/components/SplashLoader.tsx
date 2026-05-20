@@ -104,7 +104,7 @@ export function SplashLoader({ children }: { children: React.ReactNode }) {
                   </div>
                   <div className="relative h-3 w-full bg-white/10 overflow-hidden border border-white/5 rounded-full">
                     <motion.div
-                      className="absolute top-0 left-0 h-full bg-hot-pink shadow-[0_0_25px_#FFB7B2]"
+                      className="absolute top-0 left-0 h-full bg-neon-hot-pink shadow-[0_0_25px_#FF0055]"
                       style={{ width: `${progress}%` }}
                     />
                   </div>
@@ -112,7 +112,7 @@ export function SplashLoader({ children }: { children: React.ReactNode }) {
               </motion.div>
 
               {/* Terminal Text Simulation */}
-              <div className="mt-20 font-mono-tag font-bold text-xs uppercase tracking-[0.3em] text-acid-green/70 flex flex-col items-center gap-3 text-center">
+              <div className="mt-20 font-mono-tag font-bold text-xs uppercase tracking-[0.3em] text-neon-acid-green/70 flex flex-col items-center gap-3 text-center">
                 <span>Signal: Encrypted / Secure</span>
                 <span className="opacity-90">Source: Neural Network Uplink v4.2</span>
               </div>

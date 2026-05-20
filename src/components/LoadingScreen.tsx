@@ -33,7 +33,7 @@ export function LoadingScreen() {
             <h1 className="font-chomsky text-7xl sm:text-8xl text-white mb-2 tracking-tighter drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
               Raag
             </h1>
-            <div className="h-[1px] w-24 bg-white/40 mb-2" />
+            <div className="h-[2px] w-24 bg-neon-hot-pink shadow-[0_0_10px_#FF0055] mb-2" />
             <h2 className="font-serif-header text-xl font-black uppercase tracking-[0.5em] text-white/90">
               Digital Archive
             </h2>
@@ -41,7 +41,7 @@ export function LoadingScreen() {
         </motion.div>
 
         {/* Terminal Text Simulation */}
-        <div className="mt-20 font-mono-tag text-[10px] uppercase tracking-[0.3em] text-acid-green/80 flex flex-col items-center gap-2 text-center">
+        <div className="mt-20 font-mono-tag text-[10px] uppercase tracking-[0.3em] text-neon-acid-green/80 flex flex-col items-center gap-2 text-center">
           <span className="animate-pulse">&gt;&gt; Establishing Secure Uplink...</span>
           <span className="opacity-60">&gt;&gt; Source: Raag Neural Feed</span>
         </div>
