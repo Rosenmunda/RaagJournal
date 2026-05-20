@@ -104,7 +104,7 @@ export function SplashLoader({ children }: { children: React.ReactNode }) {
                   </div>
                   <div className="relative h-3 w-full bg-white/10 overflow-hidden border border-white/5 rounded-full">
                     <motion.div
-                      className="absolute top-0 left-0 h-full bg-hot-pink shadow-[0_0_25px_#FF0055]"
+                      className="absolute top-0 left-0 h-full bg-hot-pink shadow-[0_0_25px_#FFB7B2]"
                       style={{ width: `${progress}%` }}
                     />
                   </div>

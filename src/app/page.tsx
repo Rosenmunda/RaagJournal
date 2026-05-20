@@ -34,7 +34,7 @@ export default function Home() {
     date: "",
     headline: "",
     content: "",
-    moodColor: "#BAFF29",
+    moodColor: "#C3E5C4",
     tasks: [],
     dailyFocus: "",
     gratitude: [],
@@ -75,7 +75,7 @@ export default function Home() {
           date: dateStr,
           headline: "",
           content: "",
-          moodColor: "#BAFF29",
+          moodColor: "#C3E5C4",
           tasks: [],
           dailyFocus: "",
           gratitude: [],
@@ -221,13 +221,13 @@ export default function Home() {
             onChange={(focus) => updateEntry({ dailyFocus: focus })}
           />
           <ImportantDates />
-          <div className="bg-hot-pink border-[1.5px] rounded-[1.25rem] p-4 text-paper shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] focus-within:ring-2 focus-within:ring-ink transition-all">
+          <div className="bg-hot-pink border-[1.5px] rounded-[1.25rem] p-4 text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] focus-within:ring-2 focus-within:ring-ink transition-all">
             <h4 className="font-serif-body font-black text-2xl mb-2 underline decoration-2 underline-offset-4">Thought of the Day</h4>
             <textarea
               value={entry.thoughtOfTheDay}
               onChange={(e) => updateEntry({ thoughtOfTheDay: e.target.value })}
               placeholder="Record your daily thought here..."
-              className="w-full bg-transparent border-none outline-none font-serif-body text-md leading-tight resize-none placeholder:text-paper/70 selection:bg-paper selection:text-hot-pink"
+              className="w-full bg-transparent border-none outline-none font-serif-body text-md leading-tight resize-none placeholder:text-black/60 selection:bg-ink selection:text-paper"
               rows={4}
             />
           </div>

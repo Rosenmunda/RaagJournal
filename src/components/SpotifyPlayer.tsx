@@ -5,9 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Music, Settings, ExternalLink, Save, RefreshCw, X, User } from "lucide-react";
 
 const PLAYLISTS = [
-  { name: "Lofi Beats", id: "37i9dQZF1DWWQRwui0ExPn", color: "#BAFF29" }, // Acid Green
-  { name: "Deep Focus", id: "37i9dQZF1DWZeKCadgRdKQ", color: "#FF00FF" }, // Hot Pink
-  { name: "Peaceful Piano", id: "37i9dQZF1DX4sWSpwq3LiO", color: "#00E0FF" }, // Electric Blue
+  { name: "Lofi Beats", id: "37i9dQZF1DWWQRwui0ExPn", color: "#C3E5C4" }, // Sage Green
+  { name: "Deep Focus", id: "37i9dQZF1DWZeKCadgRdKQ", color: "#FFB7B2" }, // Peach Rose
+  { name: "Peaceful Piano", id: "37i9dQZF1DX4sWSpwq3LiO", color: "#A3C4F3" }, // Periwinkle Blue
   { name: "Jazz Vibes", id: "37i9dQZF1DX0SM0LYsmbMT", color: "#FFFFFF" }, // Paper
 ];
 

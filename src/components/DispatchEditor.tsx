@@ -131,15 +131,15 @@ const MenuBar = ({ editor }: { editor: Editor | null }) => {
           label="Text Color"
           icon={Palette}
           currentVal={
-            editor.isActive('textStyle', { color: '#00F0FF' }) ? '#00F0FF' :
-              editor.isActive('textStyle', { color: '#BAFF29' }) ? '#BAFF29' :
-                editor.isActive('textStyle', { color: '#FF0055' }) ? '#FF0055' : 'default'
+            editor.isActive('textStyle', { color: '#A3C4F3' }) ? '#A3C4F3' :
+              editor.isActive('textStyle', { color: '#C3E5C4' }) ? '#C3E5C4' :
+                editor.isActive('textStyle', { color: '#FFB7B2' }) ? '#FFB7B2' : 'default'
           }
           options={[
             { label: 'Ink (Default)', value: 'default', color: '#111111' },
-            { label: 'Electric Blue', value: '#00F0FF', color: '#00F0FF' },
-            { label: 'Acid Green', value: '#BAFF29', color: '#BAFF29' },
-            { label: 'Hot Pink', value: '#FF0055', color: '#FF0055' }
+            { label: 'Soft Blue', value: '#A3C4F3', color: '#A3C4F3' },
+            { label: 'Sage Green', value: '#C3E5C4', color: '#C3E5C4' },
+            { label: 'Peach Rose', value: '#FFB7B2', color: '#FFB7B2' }
           ]}
           onSelect={(val: string) => {
             if (val === 'default') {
@@ -194,26 +194,26 @@ const MenuBar = ({ editor }: { editor: Editor | null }) => {
 
       <div className="w-[1.5px] h-8 bg-ink mx-2" />
 
-      {/* Neon Highlighters */}
+      {/* Pastel Highlighters */}
       <div className="flex items-center gap-2">
         <Highlighter size={18} className="text-gray-600" />
         <button
-          onClick={() => toggleAction(() => editor.chain().focus().toggleHighlight({ color: '#0047FF' }).run())}
-          className={colorButtonClass('#0047FF', editor.isActive('highlight', { color: '#0047FF' }))}
-          style={{ backgroundColor: '#0047FF' }}
-          title="Electric Blue Highlight"
+          onClick={() => toggleAction(() => editor.chain().focus().toggleHighlight({ color: '#D2E4FF' }).run())}
+          className={colorButtonClass('#D2E4FF', editor.isActive('highlight', { color: '#D2E4FF' }))}
+          style={{ backgroundColor: '#D2E4FF' }}
+          title="Periwinkle Highlight"
         />
         <button
-          onClick={() => toggleAction(() => editor.chain().focus().toggleHighlight({ color: '#CCFF00' }).run())}
-          className={colorButtonClass('#CCFF00', editor.isActive('highlight', { color: '#CCFF00' }))}
-          style={{ backgroundColor: '#CCFF00' }}
-          title="Acid Green Highlight"
+          onClick={() => toggleAction(() => editor.chain().focus().toggleHighlight({ color: '#D2F4EA' }).run())}
+          className={colorButtonClass('#D2F4EA', editor.isActive('highlight', { color: '#D2F4EA' }))}
+          style={{ backgroundColor: '#D2F4EA' }}
+          title="Sage Highlight"
         />
         <button
-          onClick={() => toggleAction(() => editor.chain().focus().toggleHighlight({ color: '#FF00E5' }).run())}
-          className={colorButtonClass('#FF00E5', editor.isActive('highlight', { color: '#FF00E5' }))}
-          style={{ backgroundColor: '#FF00E5' }}
-          title="Hot Pink Highlight"
+          onClick={() => toggleAction(() => editor.chain().focus().toggleHighlight({ color: '#FAD2E1' }).run())}
+          className={colorButtonClass('#FAD2E1', editor.isActive('highlight', { color: '#FAD2E1' }))}
+          style={{ backgroundColor: '#FAD2E1' }}
+          title="Rose Highlight"
         />
       </div>
     </div>

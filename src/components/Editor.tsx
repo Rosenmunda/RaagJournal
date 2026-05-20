@@ -100,7 +100,7 @@ export function Editor({ headline, content, moodColor, onChange, onSave }: Edito
 
       {/* Mood Accent Selector */}
       <div className="absolute top-0 right-0 p-5 flex gap-2">
-        {['#BAFF29', '#FF0055', '#00F0FF', '#FFB800', '#D9D9D9'].map((color) => (
+        {['#C3E5C4', '#FFB7B2', '#A3C4F3', '#FFE5A3', '#D9D9D9'].map((color) => (
           <button
             key={color}
             onClick={() => {

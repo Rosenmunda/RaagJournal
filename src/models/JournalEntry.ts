@@ -22,7 +22,7 @@ const JournalEntrySchema = new Schema({
   },
   headline: { type: String, required: true },
   content: { type: String, default: "" },
-  moodColor: { type: String, default: "#BAFF29" }, // Default to acid-green
+  moodColor: { type: String, default: "#C3E5C4" }, // Default to Sage Green
   tags: [{ type: String }],
   tasks: [TaskSchema],
   dailyFocus: { type: String, default: "" },

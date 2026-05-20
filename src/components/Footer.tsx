@@ -77,7 +77,7 @@ export const Footer = () => {
 
         {/* Credit Text */}
         <p className="text-sm text-ink dark:text-zinc-400 font-bold flex items-center justify-center gap-1.5 font-mono-tag uppercase">
-          Made with <Heart className="w-4 h-4 text-hot-pink fill-hot-pink" /> by Anurag Sen
+          Made with <Heart className="w-4 h-4 text-neon-hot-pink fill-neon-hot-pink" /> by Anurag Sen
         </p>
 
       </div>

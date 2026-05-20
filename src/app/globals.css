@@ -5,9 +5,13 @@
   --color-paper: var(--paper);
   --color-ink: var(--ink);
 
-  --color-electric-blue: #00F0FF;
-  --color-acid-green: #BAFF29;
-  --color-hot-pink: #FF0055;
+  --color-electric-blue: #A3C4F3;
+  --color-acid-green: #C3E5C4;
+  --color-hot-pink: #FFB7B2;
+
+  --color-neon-electric-blue: #00F0FF;
+  --color-neon-acid-green: #BAFF29;
+  --color-neon-hot-pink: #FF0055;
 
   --font-serif-header: var(--font-news-cycle), sans-serif;
   --font-news-cycle: var(--font-news-cycle), sans-serif;
@@ -85,15 +89,15 @@ div {
 }
 
 .dark .border-hot-pink {
-  border-color: #ff2264 !important;
+  border-color: #FFB7B2 !important;
 }
 
 .dark .border-acid-green {
-  border-color: #BAFF29 !important;
+  border-color: #C3E5C4 !important;
 }
 
 .dark .border-electric-blue {
-  border-color: #00F0FF !important;
+  border-color: #A3C4F3 !important;
 }
 
 /* Dark mode card / surface overrides */
@@ -106,11 +110,11 @@ div {
   background-color: var(--surface-muted);
 }
 
-/* Dark mode hover states — acid green hover becomes muted in dark */
+/* Dark mode hover states — sage green hover becomes muted in dark */
 .dark .hover\:bg-acid-green:hover,
 .dark .hover\:bg-acid-green\/50:hover,
 .dark .hover\:bg-acid-green\/30:hover {
-  background-color: rgba(186, 255, 41, 0.15) !important;
+  background-color: rgba(195, 229, 196, 0.15) !important;
 }
 
 /* Dark mode shadow softening */

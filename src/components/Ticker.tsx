@@ -59,7 +59,7 @@ export function Ticker() {
       <div className="w-full bg-ink text-paper overflow-hidden flex items-center h-10 border-b-[1.5px] border-ink relative transition-colors">
         <button
           onClick={handleOpenModal}
-          className="absolute left-0 z-10 bg-lime-500 text-black font-bold h-full px-4 flex items-center font-mono-tag uppercase text-xs border-r-[1.5px] border-ink whitespace-nowrap hidden sm:flex hover:bg-hot-pink hover:text-paper transition-colors cursor-pointer shadow-none"
+          className="absolute left-0 z-10 bg-neon-acid-green text-black font-bold h-full px-4 flex items-center font-mono-tag uppercase text-xs border-r-[1.5px] border-ink whitespace-nowrap hidden sm:flex hover:bg-neon-hot-pink hover:text-paper transition-colors cursor-pointer shadow-none"
         >
           Breaking News
         </button>
@@ -75,7 +75,7 @@ export function Ticker() {
           >
             {/* We duplicate the items to create a seamless loop */}
             {[...newsItems, ...newsItems, ...newsItems, ...newsItems].map((item, idx) => (
-              <span key={idx} className="mx-8 text-acid-green dark:text-hot-pink flex items-center transition-colors">
+              <span key={idx} className="mx-8 text-neon-acid-green dark:text-neon-hot-pink flex items-center transition-colors">
                 <span className="text-paper mx-4">++</span>
                 {item}
               </span>
@@ -126,7 +126,7 @@ export function Ticker() {
                           newItems[i] = e.target.value;
                           setTempItems(newItems);
                         }}
-                        className="w-full p-3 border-[1.5px] rounded-[1.25rem] border-ink bg-transparent text-ink font-serif-body focus:outline-none focus:ring-2 focus:ring-hot-pink transition-all selection:bg-acid-green selection:text-paper"
+                        className="w-full p-3 border-[1.5px] rounded-[1.25rem] border-ink bg-transparent text-ink font-serif-body focus:outline-none focus:ring-2 focus:ring-neon-hot-pink transition-all selection:bg-neon-acid-green selection:text-paper"
                         placeholder="Enter dispatch..."
                       />
                     </div>
@@ -142,7 +142,7 @@ export function Ticker() {
                   </button>
                   <button
                     onClick={handleSave}
-                    className="px-6 py-3 border-[1.5px] rounded-[1.25rem] border-ink bg-electric-blue text-black font-mono-tag text-xs uppercase font-bold hover:bg-hot-pink hover:text-paper shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] active:translate-y-1 active:translate-x-1 active:shadow-none transition-all"
+                    className="px-6 py-3 border-[1.5px] rounded-[1.25rem] border-ink bg-neon-electric-blue text-black font-mono-tag text-xs uppercase font-bold hover:bg-neon-hot-pink hover:text-paper shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] active:translate-y-1 active:translate-x-1 active:shadow-none transition-all"
                   >
                     Broadcast
                   </button>

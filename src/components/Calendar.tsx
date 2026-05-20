@@ -198,7 +198,7 @@ function DailyLedger() {
         <div className="max-h-[90px] overflow-y-auto space-y-1 pr-0.5">
           {entries.map(e => (
             <div key={e.id} className="flex items-center justify-between gap-1 group">
-              <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${e.type === "gain" ? "bg-green-500" : "bg-hot-pink"}`} />
+              <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${e.type === "gain" ? "bg-acid-green" : "bg-hot-pink"}`} />
               <span className="font-serif-body text-[9px] text-ink flex-1 truncate">{e.label}</span>
               <span className={`font-mono-tag text-[9px] font-black ${e.type === "gain" ? "text-green-700" : "text-red-600"}`}>
                 {e.type === "gain" ? "+" : "-"}₹{e.amount}
@@ -294,7 +294,7 @@ export function Calendar({
             <span className="font-mono-tag text-[11px] font-bold">{format(day, "d")}</span>
             {(hasEntry || isToday) && (
               <span className={`absolute top-0.5 right-0.5 w-1.5 h-1.5 rounded-full border border-ink/20
-                ${isToday ? "bg-hot-pink" : "bg-electric-blue"}`}
+                ${isToday ? "bg-neon-hot-pink" : "bg-neon-acid-green"}`}
               />
             )}
           </div>
