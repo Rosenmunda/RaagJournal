@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import Groq from 'groq-sdk';
+
+export const dynamic = 'force-dynamic';
 
 export async function GET() {
   const today = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
@@ -61,9 +63,9 @@ export async function GET() {
   }));
 
   try {
-    const apiKey = process.env.GOOGLE_GEMINI_API_KEY;
+    const apiKey = process.env.GROQ_API_KEY;
     if (!apiKey) {
-      console.warn("Gemini API Key missing, falling back to mock news.");
+      console.warn("Groq API Key missing, falling back to mock news.");
       return NextResponse.json({
         news: addUrls(fallbackData.news),
         weather: fallbackData.weather,
@@ -71,21 +73,64 @@ export async function GET() {
       });
     }
 
-    console.log(`Fetching comprehensive data from Gemini AI for ${today}...`);
+    console.log(`Fetching comprehensive data from Groq API for ${today}...`);
 
-    const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({
-      model: "gemini-2.5-flash",
-      generationConfig: { responseMimeType: "application/json" }
+    let realTimeContext = "";
+    try {
+      const newsRes = await fetch('https://news.google.com/rss?hl=en-IN&gl=IN&ceid=IN:en');
+      const newsXml = await newsRes.text();
+      const titles = [...newsXml.matchAll(/<title>(.*?)<\/title>/g)].slice(1, 30).map(m => m[1]);
+      
+      const wRes = await fetch('https://wttr.in/Kolkata?format=j1');
+      const wData = await wRes.json();
+      const weather = wData.current_condition[0];
+      
+      realTimeContext = `
+        CURRENT REAL-TIME HEADLINES (Use these!):
+        ${titles.join('\n')}
+        
+        CURRENT WEATHER IN KOLKATA:
+        Condition: ${weather.weatherDesc[0].value}
+        Temperature: ${weather.temp_C}°C
+        Wind: ${weather.windspeedKmph} km/h
+        Humidity: ${weather.humidity}%
+      `;
+    } catch (e) {
+      console.warn("Failed to fetch real-time context", e);
+    }
+
+    const dynamicPrompt = `
+      ${prompt}
+      
+      IMPORTANT INSTRUCTIONS: 
+      - You MUST use the following real-time data to generate your response. 
+      - For news, strictly select and categorize from the provided CURRENT REAL-TIME HEADLINES. Do NOT use old or historical data.
+      - For weather, strictly use the provided CURRENT WEATHER IN KOLKATA data.
+      - If a news category doesn't have a perfect match, pick the closest headline.
+      
+      REAL-TIME DATA FOR TODAY (${today}):
+      ${realTimeContext}
+    `;
+
+    const groq = new Groq({ apiKey });
+    
+    const chatCompletion = await groq.chat.completions.create({
+      messages: [
+        {
+          role: "user",
+          content: dynamicPrompt,
+        },
+      ],
+      model: "llama-3.3-70b-versatile",
+      response_format: { type: "json_object" },
     });
 
-    const result = await model.generateContent(prompt);
-    const content = result.response.text();
+    const content = chatCompletion.choices[0]?.message?.content || "{}";
 
     try {
       const parsedData = JSON.parse(content);
 
-      // Ensure fallbacks for missing sections if Gemini hallucinates the structure
+      // Ensure fallbacks for missing sections if Groq hallucinates the structure
       const finalNews = parsedData.news && Array.isArray(parsedData.news) && parsedData.news.length > 0
         ? addUrls(parsedData.news)
         : addUrls(fallbackData.news);
@@ -103,7 +148,7 @@ export async function GET() {
       });
 
     } catch (parseError) {
-      console.warn("Gemini returned invalid JSON structure, using fallback.");
+      console.warn("Groq returned invalid JSON structure, using fallback.");
       return NextResponse.json({
         news: addUrls(fallbackData.news),
         weather: fallbackData.weather,
@@ -111,7 +156,7 @@ export async function GET() {
       });
     }
   } catch (error: any) {
-    console.error("Gemini API Error:", error);
+    console.error("Groq API Error:", error);
     return NextResponse.json({
       news: addUrls(fallbackData.news),
       weather: fallbackData.weather,
